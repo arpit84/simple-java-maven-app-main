@@ -22,4 +22,10 @@ public class AppTest
         App app = new App();
         assertEquals("Hello World!", app.getMessage());
     }
+
+    @Test
+    public void testAppMessageNotNull() {
+        App app = new App();
+        assertNotNull(app.getMessage(), "The message should not be null");
+    }
 }
