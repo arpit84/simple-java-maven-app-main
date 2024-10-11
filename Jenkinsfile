@@ -7,19 +7,27 @@ pipeline {
 	  maven 'LOCALMAVEN'		  
     }
     stages {
-        stage("Code Checkout") {
+        stage('Source') {
             steps {
-                checkout scm
+                git branch: 'master',
+                    changelog: false,
+                    poll: false,
+                    url: 'https://github.com/arpit84/simple-java-maven-app-main.git'
             }
         }
-        stage("Code Build") {
+        stage("Clean") {
             steps {
                 bat "mvn clean"
             }
         }
-        stage("Unit Test") {
+        stage("Test") {
             steps {
                 bat "mvn test"
+            }
+        }
+	stage("Package") {
+            steps {
+                bat "mvn package -DskipTests"
             }
         }
         stage("Publish to Artifactory") {
