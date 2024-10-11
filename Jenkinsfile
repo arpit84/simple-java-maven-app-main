@@ -1,10 +1,10 @@
 pipeline {
     agent any
     tools {
-    	  ant 'LOCALANT'
-          git 'LOCALGIT'    
-		  jdk 'LOCALJDK17'
-        maven 'LOCALMAVEN'		  
+	    ant 'LOCALANT'
+	    git 'LOCALGIT'
+	    jdk 'LOCALJDK17'
+	  maven 'LOCALMAVEN'		  
     }
     stages {
         stage("Code Checkout") {
