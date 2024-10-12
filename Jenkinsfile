@@ -8,6 +8,16 @@
         }
         stages {
 
+             stage('Checkout') {
+                 steps {
+                     script {
+                              bat 'git --version'
+                            }
+                // Perform the checkout to ensure Git config is correct
+                checkout scm
+            }
+        }
+
             stage('Source') {
                 steps {
                     echo 'Getting Requirements....'
