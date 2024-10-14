@@ -23,5 +23,11 @@ public class AppTest
         assertEquals("Hello World!", app.getMessage());
     }
 
+    @Test
+    public void testShouldAnswerTrue()
+    {
+        assertTrue( true );
+    }
+
 
 }
